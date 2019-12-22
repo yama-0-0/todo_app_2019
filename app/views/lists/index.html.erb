@@ -9,7 +9,7 @@
                <%= form_for(list) do |f| %>
                <%= f.text_field :description, type: 'hidden' %>
                <%= f.check_box :completed, :checked => false, :style => 'visibility: hidden' %>
-               <%= f.submit "未完了タスク", class: 'btn btn-outline-secondary btn-sm' %>
+               <%= f.submit "完了済み", class: 'btn btn-outline-secondary btn-sm' %>
                <% end %>
              </center>
           </td>
@@ -23,7 +23,7 @@
               <%= form_for(list) do |f| %>
               <%= f.text_field :description, type: 'hidden' %>
               <%= f.check_box :completed, :checked => true, :style => 'visibility: hidden' %>
-              <%= f.submit "完了タスク", class: 'btn btn-outline-secondary btn-sm' %>
+              <%= f.submit "未完了", class: 'btn btn-outline-secondary btn-sm' %>
               <% end %>
             </center>
           </td>
@@ -35,4 +35,5 @@
 </table>
 
 <br>
-<%= link_to '新規タスク作成', new_list_path %>
+<%= link_to '完了済みタスクを削除', home_trash_em_path, data: { confirm: '削除してよろしいですか' } %> |
+<%= link_to '全てのタスクを削除', home_trash_em_all_path, data: { confirm: '削除してよろしいですか' } %>
